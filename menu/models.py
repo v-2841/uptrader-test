@@ -4,6 +4,7 @@ from django.db import models
 class MenuItem(models.Model):
     name = models.CharField(
         max_length=50,
+        unique=True,
         verbose_name='Название',
     )
     title = models.CharField(
@@ -15,6 +16,7 @@ class MenuItem(models.Model):
         null=True,
         blank=True,
         on_delete=models.CASCADE,
+        related_name='children',
         verbose_name='Предыдущий узел',
     )
     url = models.CharField(

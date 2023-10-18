@@ -1,11 +1,16 @@
-{% load menu_tags %}
 <!DOCTYPE html>
 <html lang="ru">
     <head>
         <meta charset="UTF-8">
-        <title>Домашняя страница</title>
+        <title>Меню</title>
     </head>
+    <style>
+        .selected {
+            color: #d91919;
+        }
+    </style>
     <body>
-        <div>{% draw_menu 'main_menu_items' %}</div>
+        {% load menu_tags %}
+        {% draw_menu 'main_menu' %}
     </body>
 </html>
