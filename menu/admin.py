@@ -4,7 +4,12 @@ from django.contrib.auth.models import Group, User
 from menu.models import MenuItem
 
 
-admin.site.register(MenuItem)
+class MenuItemAdmin(admin.ModelAdmin):
+    list_display = ['title', 'name', 'url', 'parent']
+    search_fields = ['name', 'title']
+
+
+admin.site.register(MenuItem, MenuItemAdmin)
 admin.site.unregister(Group)
 admin.site.unregister(User)
 admin.site.site_title = 'Updater test'
